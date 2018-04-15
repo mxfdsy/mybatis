@@ -6,7 +6,6 @@
 <!--告诉的sprint我们链接表的信息-->
 <!--用哪个接口查询(此处的dao.StudentMapper 必须和XML的文件名相同,否则会提示找不到)-->
 <mapper namespace="dao.StudentMapper">
-
     <!--查询的信息给那个类 -->
     <resultMap id="StudentMapper" type="entity.Student">
         <!--数据库表字段信息和Student中字段值的名称之间的映射（原理还是反射）-->
@@ -23,6 +22,6 @@
             SELECT * FROM  student_list WHERE id = #{id}
         </select>
         <select id="selectAllStudent" resultMap="StudentMapper">
-            SELECT  * FROM  student_list
+            SELECT * FROM  student_list
         </select>
 </mapper>

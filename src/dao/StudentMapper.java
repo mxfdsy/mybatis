@@ -15,5 +15,4 @@ public interface StudentMapper {
     Student selectStudentId(int i) throws Exception;
     //查询出多条数据的情况
     List<Student> selectAllStudent();
-
 }

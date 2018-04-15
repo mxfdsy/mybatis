@@ -10,6 +10,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        //使用流的形式读取数据资源resource/mybatis-cfg.xml 文件信息
         InputStream in = Main.class.getResourceAsStream("resource/mybatis-cfg.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
         SqlSession session =factory.openSession();

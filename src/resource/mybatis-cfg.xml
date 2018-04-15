@@ -4,13 +4,6 @@
 
 <configuration>
     <properties resource="resource/jdbc.properties"/>
-    <!--1、注意顺序 2、作用将jdbc查出来的数据信息自动映射到对应的类中自动生成对象-->
-    <typeAliases>
-        <!--单个类的扫描-->
-        <!--<typeAlias type="entity.Student"/>-->
-        <!--自动扫描整个下面的类-->
-        <package name="entity"/>
-    </typeAliases>
 
     <environments default="mybatis-demo">
         <environment id="mybatis-demo">
@@ -26,8 +19,18 @@
             </dataSource>
         </environment>
     </environments>
-    <!--告诉mybatis我们的mapper在哪（daoh和resource就有了联系）-->
+    <!--1、注意顺序 2、作用将jdbc查出来的数据信息自动映射到对应的类中自动生成对象-->
+    <typeAliases>
+        <!--单个类的扫描-->
+        <!--<typeAlias type="entity.Student"/>-->
+        <!--自动扫描整个下面的类-->
+        <package name="entity"/>
+    </typeAliases>
+
+    <!--告诉mybatis我们的mapper（映射器）在哪（dao和resource就有了联系）-->
     <mappers>
         <package name="dao"/>
     </mappers>
+
+
 </configuration>
