@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties resource="resource/jdbc.properties"/>
+    <!--1、注意顺序 2、作用将jdbc查出来的数据信息自动映射到对应的类中自动生成对象-->
+    <typeAliases>
+        <!--单个类的扫描-->
+        <!--<typeAlias type="entity.Student"/>-->
+        <!--自动扫描整个下面的类-->
+        <package name="entity"/>
+    </typeAliases>
+
+    <environments default="mybatis-demo">
+        <environment id="mybatis-demo">
+            <!--链接的类型-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--链接池的类型-->
+            <dataSource type="POOLED">
+                <!--把已经到内存的连接数据库的配置文件读取出来（原理反射）-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--告诉mybatis我们的mapper在哪（daoh和resource就有了联系）-->
+    <mappers>
+        <package name="dao"/>
+    </mappers>
+</configuration>

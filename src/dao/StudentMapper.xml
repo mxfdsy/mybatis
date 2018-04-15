@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--配置信息的引入-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--告诉的sprint我们链接表的信息-->
+<!--用哪个接口查询(此处的dao.StudentMapper 必须和XML的文件名相同,否则会提示找不到)-->
+<mapper namespace="dao.StudentMapper">
+
+    <!--查询的信息给那个类 -->
+    <resultMap id="StudentMapper" type="entity.Student">
+        <!--数据库表字段信息和Student中字段值的名称之间的映射（原理还是反射）-->
+        <id column="id" property="id"/>
+        <result property="name" column="student_name"/>
+        <result property="number" column="student_number"/>
+    </resultMap>
+
+        <!--具体插入的SQL语句-->
+        <insert id="insertStudent" parameterType="entity.Student">
+            INSERT INTO student_list (id,student_name,student_number) VALUES (#{id},#{name},#{number})
+        </insert>
+        <select id="selectStudentId" resultMap="StudentMapper">
+            SELECT * FROM  student_list WHERE id = #{id}
+        </select>
+        <select id="selectAllStudent" resultMap="StudentMapper">
+            SELECT  * FROM  student_list
+        </select>
+</mapper>
