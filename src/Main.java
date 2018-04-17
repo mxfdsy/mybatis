@@ -22,7 +22,7 @@ public class Main {
 //        student.setNumber(1995);
 //        mapper.insertStudent(student);
 //        mapper.selectStudentId(1);
-        List<Student> students = mapper.selectAllStudent();
+        Student student1 = mapper.selectByPrimaryKeyWithTeacher(1);
         session.commit();
         session.close();
     }
