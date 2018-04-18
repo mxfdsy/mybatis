@@ -22,7 +22,8 @@ public class Main {
 //        student.setNumber(1995);
 //        mapper.insertStudent(student);
 //        mapper.selectStudentId(1);
-        Student student1 = mapper.selectByPrimaryKeyWithTeacher(1);
+        //一对一查询
+         student = mapper.selectByPrimaryKeyWithTeacher(1);
         session.commit();
         session.close();
     }
